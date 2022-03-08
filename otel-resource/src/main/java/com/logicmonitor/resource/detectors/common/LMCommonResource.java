@@ -14,8 +14,7 @@ public class LMCommonResource {
 
   static Resource buildResource() {
     AttributesBuilder attrBuilders = Attributes.builder();
-    String telemetrySdkName = "lm-opentelemetry";
-    attrBuilders.put(ResourceAttributes.TELEMETRY_SDK_NAME, telemetrySdkName);
+    attrBuilders.put(ResourceAttributes.TELEMETRY_SDK_NAME, "lm-opentelemetry");
 
     return Resource.create(attrBuilders.build(), ResourceAttributes.SCHEMA_URL);
   }

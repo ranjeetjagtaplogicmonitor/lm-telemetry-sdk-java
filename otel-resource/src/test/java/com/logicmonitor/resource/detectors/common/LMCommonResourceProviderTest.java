@@ -12,8 +12,7 @@ public class LMCommonResourceProviderTest {
   @Test
   public void whenProvidedValidCommonResourceThenReturnResourceWithTelemetrySDKName() {
     AttributesBuilder attrBuilders = Attributes.builder();
-    String telemetrySdkName = "lm-opentelemetry";
-    attrBuilders.put(ResourceAttributes.TELEMETRY_SDK_NAME, telemetrySdkName);
+    attrBuilders.put(ResourceAttributes.TELEMETRY_SDK_NAME, "lm-opentelemetry");
     Resource resources = Resource.create(attrBuilders.build(), ResourceAttributes.SCHEMA_URL);
     Resource lmResource = LMCommonResource.buildResource();
     assertEquals(resources, lmResource);
