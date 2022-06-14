@@ -22,7 +22,7 @@ public class LMComputeEngineResourceProviderTest {
   @Test
   public void ifKServiceIsNull() throws IOException {
     Map<AttributeKey<?>, Object> expectedOutputSet =
-        new HashMap<>() {
+        new HashMap<AttributeKey<?>, Object>() {
           {
             put(ResourceAttributes.CLOUD_PROVIDER, "gcp");
             put(ResourceAttributes.CLOUD_PLATFORM, "gcp_compute_engine");
