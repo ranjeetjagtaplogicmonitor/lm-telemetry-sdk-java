@@ -1,5 +1,6 @@
 package com.logicmonitor.resource.detectors.gcp.computeEngine;
 
+import com.amazonaws.util.IOUtils;
 import io.opentelemetry.api.common.Attributes;
 import io.opentelemetry.api.common.AttributesBuilder;
 import io.opentelemetry.sdk.resources.Resource;
@@ -44,7 +45,7 @@ public class LMComputeEngineResource {
       URL url = new URL(key);
       HttpURLConnection conn = (HttpURLConnection) (url.openConnection());
       conn.setRequestProperty("Metadata-Flavor", "Google");
-      resource = new String(conn.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
+      resource = new String(IOUtils.toByteArray(conn.getInputStream()), StandardCharsets.UTF_8);
       conn.disconnect();
     } catch (Exception e) {
       logger.error("Exception:" + e);
